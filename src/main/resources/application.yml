@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gestion-asignaturas-ms
+  datasource:
+    url: jdbc:mysql://localhost:3306/maestriacomputacion
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL=debug: debug
+server:
+  port: 8021
