@@ -1,7 +1,5 @@
 package com.unicauca.maestria.api.gestionasignaturasms.services.rest.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,16 +26,29 @@ public class AsignaturaExternaServiceImpl implements AsignaturaExternaService {
             asignaturaExterna.setNumeroCreditos(asignatura.getNumeroCreditos());
             asignaturaExterna.setIntensidadHoraria(asignatura.getIntensidadHoraria());
             asignaturaExterna.setContenidoProgramatico(asignatura.getContenidoProgramatico());
-            asignaturaExterna = asignaturaExternaRepository.save(asignaturaExterna);
-            response = new AsignaturaExternaResponseDto();
-            response.setIdAsignatura(asignaturaExterna.getId());
-            response.setNombre(asignaturaExterna.getNombre());
-            return response;          
+            asignaturaExterna = asignaturaExternaRepository.save(asignaturaExterna);            
+            return obtenerDto(asignaturaExterna);          
         } catch (Exception e) {
             System.out.println("Ocurrió un error al guardar las asignaturas externas.");
             e.printStackTrace();
             return response;
         }
     }
-    
+
+    @Override
+    public AsignaturaExternaResponseDto obtenerAsignaturasExterna(Integer idAsignatura) {
+        AsignaturaExterna asignaturaExterna = asignaturaExternaRepository.findById(idAsignatura).get();
+        return obtenerDto(asignaturaExterna);
+    }
+
+    private AsignaturaExternaResponseDto obtenerDto(AsignaturaExterna asignaturaExterna){
+        AsignaturaExternaResponseDto response = new AsignaturaExternaResponseDto();
+        response.setIdAsignatura(asignaturaExterna.getId());
+        response.setNombre(asignaturaExterna.getNombre());            
+        response.setCreditos(asignaturaExterna.getNumeroCreditos());
+        response.setInstitucion(asignaturaExterna.getInstitucionProcedencia());
+        response.setIntensidadHoraria(asignaturaExterna.getIntensidadHoraria());
+        response.setPrograma(asignaturaExterna.getProgramaProcedencia());
+        return response;
+    }
 }

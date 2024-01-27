@@ -5,4 +5,5 @@ import com.unicauca.maestria.api.gestionasignaturasms.dtos.rest.response.Asignat
 
 public interface AsignaturaExternaService {
     AsignaturaExternaResponseDto registrarAsignaturasExternas(AsignaturaExternaDto asignaturaExternaDto);
+    AsignaturaExternaResponseDto obtenerAsignaturasExterna(Integer idAsignatura);
 }

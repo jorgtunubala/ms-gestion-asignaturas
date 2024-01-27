@@ -16,9 +16,7 @@ import com.unicauca.maestria.api.gestionasignaturasms.exceptions.FieldUniqueExce
 import com.unicauca.maestria.api.gestionasignaturasms.exceptions.ResourceNotFoundException;
 import com.unicauca.maestria.api.gestionasignaturasms.mappers.AsignaturaCrearMapper;
 import com.unicauca.maestria.api.gestionasignaturasms.mappers.AsignaturaListarMapper;
-import com.unicauca.maestria.api.gestionasignaturasms.mappers.archivos.OficioCrearMapper;
 import com.unicauca.maestria.api.gestionasignaturasms.mappers.archivos.OficioListarMapper;
-import com.unicauca.maestria.api.gestionasignaturasms.mappers.archivos.OtroDocCrearMapper;
 import com.unicauca.maestria.api.gestionasignaturasms.mappers.archivos.OtroDocListarMapper;
 import com.unicauca.maestria.api.gestionasignaturasms.repositories.ActaAsignaturaRepository;
 import com.unicauca.maestria.api.gestionasignaturasms.repositories.AsignaturaRepository;

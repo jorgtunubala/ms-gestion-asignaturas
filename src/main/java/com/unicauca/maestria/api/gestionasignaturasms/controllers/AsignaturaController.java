@@ -1,6 +1,5 @@
 package com.unicauca.maestria.api.gestionasignaturasms.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.unicauca.maestria.api.gestionasignaturasms.domain.ActaAsignatura;
 import com.unicauca.maestria.api.gestionasignaturasms.domain.Asignatura;
 import com.unicauca.maestria.api.gestionasignaturasms.domain.DocenteAsignatura;
