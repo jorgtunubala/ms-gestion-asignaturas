@@ -5,8 +5,13 @@ import com.unicauca.maestria.api.gestionasignaturasms.domain.Asignatura;
 import com.unicauca.maestria.api.gestionasignaturasms.domain.DocenteAsignatura;
 import com.unicauca.maestria.api.gestionasignaturasms.dtos.AsignaturaCrearDto;
 import com.unicauca.maestria.api.gestionasignaturasms.dtos.AsignaturaListarDto;
+import com.unicauca.maestria.api.gestionasignaturasms.dtos.rest.response.DocentesAsignaturasResponse;
 import com.unicauca.maestria.api.gestionasignaturasms.services.asignatura.AsignaturaService;
+import com.unicauca.maestria.api.gestionasignaturasms.services.docenteasignatura.DocenteAsignaturaService;
+
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +28,9 @@ import java.util.List;
 public class AsignaturaController {
 
     private final AsignaturaService service;
+
+    @Autowired
+    private final DocenteAsignaturaService docenteAsignaturaService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AsignaturaListarDto> crear(@Valid @RequestBody AsignaturaCrearDto asignatura, BindingResult result) {
@@ -72,5 +80,10 @@ public class AsignaturaController {
     @GetMapping("/docentes/{estado}")
     public ResponseEntity<List<DocenteAsignatura>> docentesAsignaturas(@PathVariable Boolean estado){
         return ResponseEntity.status(HttpStatus.OK).body(service.getDocentesAsignaturasByEstado(estado));
+    }
+
+    @GetMapping("/docentes-asignaturas")
+    public ResponseEntity<List<DocentesAsignaturasResponse>> listarDocentesAsignaturas(){
+        return ResponseEntity.status(HttpStatus.OK).body(docenteAsignaturaService.listarDocAsig());
     }
 }

@@ -1,6 +1,7 @@
 package com.unicauca.maestria.api.gestionasignaturasms.services.docenteasignatura;
 
 import com.unicauca.maestria.api.gestionasignaturasms.domain.DocenteAsignatura;
+import com.unicauca.maestria.api.gestionasignaturasms.dtos.rest.response.DocentesAsignaturasResponse;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface DocenteAsignaturaService {
     public List<DocenteAsignatura> buscarTodo();
 
     public DocenteAsignatura eliminar(DocenteAsignatura docenteAsignatura);
+
+    public List<DocentesAsignaturasResponse> listarDocAsig();
 }
