@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.unicauca.maestria.api.gestionasignaturasms.domain.RelDocenteAsignatura;
 
-public interface RelDocenteAsignaturaRepository extends JpaRepository<RelDocenteAsignatura, Long> {
+public interface RelDocenteAsignaturaRepository extends JpaRepository<RelDocenteAsignatura, Integer> {
     
 }

@@ -86,4 +86,9 @@ public class AsignaturaController {
     public ResponseEntity<List<DocentesAsignaturasResponse>> listarDocentesAsignaturas(){
         return ResponseEntity.status(HttpStatus.OK).body(docenteAsignaturaService.listarDocAsig());
     }
+
+    @GetMapping("/asignaturas-adicionar/{lista}")
+    public ResponseEntity<List<DocentesAsignaturasResponse>> listarAsignaturasAdicionar(@PathVariable List<Integer> lista){
+        return ResponseEntity.status(HttpStatus.OK).body(docenteAsignaturaService.obtenerDocentesAsignaturas(lista));
+    }
 }

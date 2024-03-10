@@ -6,6 +6,7 @@ import com.unicauca.maestria.api.gestionasignaturasms.dtos.rest.response.Docente
 import com.unicauca.maestria.api.gestionasignaturasms.repositories.RelDocenteAsignaturaRepository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,15 +46,28 @@ public class DocenteAsignaturaServiceImpl implements DocenteAsignaturaService{
     @Override
     public List<DocentesAsignaturasResponse> listarDocAsig() {
         List<RelDocenteAsignatura> docenteAsignaturas = docenteAsignaturaRepository.findAll();
-        List<DocentesAsignaturasResponse> dAsignaturasResponse = new ArrayList<>();
-        for (RelDocenteAsignatura relDocenteAsignatura : docenteAsignaturas) {
+        List<DocentesAsignaturasResponse> dAsignaturasResponse = convertToDocenteAsignaturaResponse(docenteAsignaturas);        
+        return dAsignaturasResponse;
+    }
+
+    @Override
+    public List<DocentesAsignaturasResponse> obtenerDocentesAsignaturas(List<Integer> ids) {
+        Iterable<Integer> iterator = ids;
+        List<RelDocenteAsignatura> lista = docenteAsignaturaRepository.findAllById(iterator);
+        List<DocentesAsignaturasResponse> docentesAsignaturasResponses = convertToDocenteAsignaturaResponse(lista);        
+        return docentesAsignaturasResponses;
+    }
+
+    private List<DocentesAsignaturasResponse> convertToDocenteAsignaturaResponse(List<RelDocenteAsignatura> relDocenteAsignaturas){
+        List<DocentesAsignaturasResponse> docentesAsignaturasResponses = new ArrayList<>();
+        for (RelDocenteAsignatura relDocenteAsignatura : relDocenteAsignaturas) {
             DocentesAsignaturasResponse info = new DocentesAsignaturasResponse();
             info.setId(relDocenteAsignatura.getId().intValue());
             info.setNombreAsignatura(relDocenteAsignatura.getNombreAsignatura());
             info.setCodigoAsignatura(relDocenteAsignatura.getCodigoAsignatura());
             info.setIdDocente(relDocenteAsignatura.getIdDocente());
-            dAsignaturasResponse.add(info);
+            docentesAsignaturasResponses.add(info);
         }
-        return dAsignaturasResponse;
+        return docentesAsignaturasResponses;    
     }
 }

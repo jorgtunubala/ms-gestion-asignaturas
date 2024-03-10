@@ -16,7 +16,7 @@ public class RelDocenteAsignatura {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "nombre_asignatura")
     private String nombreAsignatura;

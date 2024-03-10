@@ -18,4 +18,6 @@ public interface DocenteAsignaturaService {
     public DocenteAsignatura eliminar(DocenteAsignatura docenteAsignatura);
 
     public List<DocentesAsignaturasResponse> listarDocAsig();
+
+    public List<DocentesAsignaturasResponse> obtenerDocentesAsignaturas(List<Integer> ids);
 }
