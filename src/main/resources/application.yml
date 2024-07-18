@@ -2,12 +2,9 @@ spring:
   application:
     name: gestion-asignaturas-ms
   datasource:
-    url: jdbc:mysql://docker.unicauca.edu.co:3307/computacion
-    username: computacion
-    password: DB-C0mput4c10N
-    #url: jdbc:mysql://localhost:3306/maestriacomputacion
-    #username: root
-    #password: mysql
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
@@ -17,5 +14,6 @@ logging:
     org:
       hibernate:
         SQL=debug: debug
+
 server:
-  port: 8021
+  port: ${SPRING_SERVER_ASIGNATURAS_PORT}

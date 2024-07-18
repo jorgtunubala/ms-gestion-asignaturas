@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GestionAsignaturasMsApplication<gestion-asignaturas-ms>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.unicauca.maestria.api.gestionasignaturasms.GestionAsignaturasMsApplication",
+            "projectName": "gestion-asignaturas-ms",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
