@@ -3,9 +3,12 @@ package com.unicauca.maestria.api.gestionasignaturasms.domain.msestudiantedocent
 import lombok.*;
 
 import javax.persistence.*;
+
+import com.unicauca.maestria.api.gestionasignaturasms.common.enums.msestudiantedocente.EstadoPersona;
+
 import java.util.Objects;
 
-@Getter @Setter @ToString   @NoArgsConstructor @AllArgsConstructor @Builder
+@Getter @Setter @ToString @AllArgsConstructor @Builder
 @Entity @Table(name = "lineas_investigacion")
 public class LineaInvestigacion {
 
@@ -13,9 +16,18 @@ public class LineaInvestigacion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String titulo;
-	
-	private String categoria;
+	private String descripcion;
+
+	@ManyToOne
+	@JoinColumn(name = "id_categoria")
+	private CategoriaLinea categoria;
+
+	@Enumerated(EnumType.STRING)
+	private EstadoPersona estado;
+
+	public LineaInvestigacion() {
+		estado = EstadoPersona.ACTIVO;
+	}
 
 
 	@Override
