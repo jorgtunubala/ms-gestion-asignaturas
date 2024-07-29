@@ -2,6 +2,8 @@ package com.unicauca.maestria.api.gestionasignaturasms.dtos;
 
 import javax.validation.constraints.NotBlank;
 
+import com.unicauca.maestria.api.gestionasignaturasms.domain.msestudiantedocente.CategoriaLinea;
+
 import lombok.*;
 
 @Getter
@@ -17,6 +19,6 @@ public class LineaInvestigacionDto {
     private String titulo;
 
     @NotBlank
-    private String categoria;
+    private CategoriaLinea categoria;
 }
 
