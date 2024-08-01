@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 
-@FeignClient(name = "gestion-archivos-ms", url = "http://localhost:8020")
+@FeignClient(name = "ms-gestion-archivos", url = "http://ms-gestion-archivos:8020")
 public interface ArchivoClient {
 
     @PostMapping("api/oficios")

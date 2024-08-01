@@ -1,6 +1,6 @@
 spring:
   application:
-    name: gestion-asignaturas-ms
+    name: ms-gestion-asignaturas
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
