@@ -49,6 +49,7 @@ public class AsignaturaExternaServiceImpl implements AsignaturaExternaService {
         response.setInstitucion(asignaturaExterna.getInstitucionProcedencia());
         response.setIntensidadHoraria(asignaturaExterna.getIntensidadHoraria());
         response.setPrograma(asignaturaExterna.getProgramaProcedencia());
+        response.setContenidoProgramatico(asignaturaExterna.getContenidoProgramatico());
         return response;
     }
 }

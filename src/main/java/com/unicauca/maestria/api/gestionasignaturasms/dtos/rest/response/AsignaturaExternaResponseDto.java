@@ -10,4 +10,5 @@ public class AsignaturaExternaResponseDto {
     private Integer intensidadHoraria;    
     private String programa;
     private String institucion;
+    private String contenidoProgramatico;
 }
